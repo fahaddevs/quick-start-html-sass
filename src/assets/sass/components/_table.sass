@@ -1,0 +1,122 @@
+/* table css start */
+.custom--table
+  thead 
+    // @extend %base-color
+    background-color: #f6f9fc
+    th 
+      // border-bottom: 1px solid rgba(#fff, 0.15) !important
+      // border-top: none
+      border-top: 1px solid #e9ecef !important
+      border-bottom: 1px solid #e9ecef !important
+      padding: rem(12px) rem(20px)
+      // @extend %text-h
+      color: #7991ad
+      font-size: rem(14px) 
+      text-transform: uppercase
+      text-align: center
+      font-weight: 500 
+      vertical-align: middle
+      &:first-child
+        text-align: left
+        // +border-radius(8px 0 0 0)
+        // padding-left: 0
+      &:last-child
+        text-align: right
+        // +border-radius(0 8px 0 0)
+        // padding-right: 0
+  tbody 
+    td 
+      border-top: none 
+      border-bottom: 1px solid rgba(#000, 0.08)
+      padding: 15px 20px
+      color: $para-color
+      text-align: center
+      vertical-align: middle
+      &:first-child
+        text-align: left
+      &:last-child
+        text-align: right
+    tr        
+      &:last-child
+        td 
+          border-bottom: none 
+.t-company-thumb 
+  width: 55px
+  height: 55px 
+  @extend %bg-white 
+  @extend %bs-5 
+  overflow: hidden
+  box-shadow: 0 3px 15px rgba(#000, 0.3)
+.t-company-content 
+  padding-left: rem(15px)
+.t-rating 
+  img
+    max-height: 25px
+// table responsive 
+[data-label]
+  position: relative
+  &::before 
+    position: absolute
+    content: attr(data-label)
+    font-weight: 700 
+    @extend %text-h 
+    top: 0 
+    left: 0
+    padding: rem(13px) rem(15px)
+    display: none
+    font-size: rem(14px)
+.table-responsive--md
+  +media(991px)
+    thead 
+      display: none
+    tbody 
+      tr
+        &:nth-child(odd)
+          background-color: darken(#fff, 4%)
+        &:last-child
+          td 
+            border-top: 1px solid rgba(#000, 0.08)
+        td 
+          padding-right: 15px
+          &:last-child
+            padding-right: 15px
+    tr 
+      th, td 
+        display: block
+        padding-left: 45%!important
+        text-align: right!important
+        &:first-child
+          border-top: none !important
+    [data-label]
+      &::before
+        display: block
+.table-responsive--sm
+  +media(767px)
+    thead 
+      display: none
+    tbody 
+      tr
+        &:nth-child(odd)
+          background-color: f7f7f7
+        td 
+          padding-right: 15px
+          &:last-child
+            padding-right: 15px
+    tr 
+      th, td 
+        display: block
+        padding-left: 45%!important
+        text-align: right!important
+        border-top: 1px solid rgba(#000000, 0.08) !important
+        &:first-child
+          border-top: none !important
+    [data-label]
+      &::before
+        display: block
+*[class*="table-responsive--"]
+  &.data-label--none 
+    @media (max-width: 1199px)
+      tr
+        th, td
+          padding-left: 0.75rem
+/* table css end */
