@@ -2,6 +2,7 @@
 const gulp = require('gulp');
 const { series } = require('gulp');
 const sass = require('gulp-sass');
+// const sass = require('gulp-dart-sass');
 const concat = require('gulp-concat');
 const cssbeautify = require('gulp-cssbeautify');
 // const uglify = require('gulp-uglify');
@@ -13,10 +14,10 @@ const browserSync = require('browser-sync').create();
 function style() {
   return gulp.src('./src/assets/sass/main.sass')
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sass())
-    .pipe(cssbeautify())
+    // .pipe(sass().on('error', sass.logError))
+      .pipe(sass())
     .pipe(sourcemaps.write('.'))
+    .pipe(cssbeautify())
     .pipe(gulp.dest('./src/assets/css'))
     .pipe(browserSync.stream());
 };
@@ -33,19 +34,29 @@ function htmlfileinclude() {
 
 
 function watch() {
-  gulp.watch('./src/partial-html/*.html', htmlfileinclude);
-  gulp.watch('./src/html/*.html', htmlfileinclude);
-  gulp.watch('./src/assets/sass/**/*.sass', style);
-}
-
-function live() {
   browserSync.init({
     server: {
       baseDir: './src/'
     }
   });
+
+  gulp.watch('./src/partial-html/*.html', htmlfileinclude);
+  gulp.watch('./src/html/*.html', htmlfileinclude);
+  gulp.watch('./src/assets/sass/**/*.sass', style);
+
+  gulp.watch('./src/partial-html/*.html').on('change', browserSync.reload);
+  gulp.watch('./src/html/*.html').on('change', browserSync.reload);
+  gulp.watch('./src/assets/sass/**/*.sass').on('change', browserSync.reload);
 }
 
+// function live() {
+//   browserSync.init({
+//     server: {
+//       baseDir: './src/'
+//     }
+//   });
+// }
+
 exports.watch = watch;
-exports.live = live;
+// exports.live = live;
 // exports.default = series(style, miniJs, miniCss);
