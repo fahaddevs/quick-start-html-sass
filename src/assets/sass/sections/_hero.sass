@@ -21,4 +21,30 @@
     @extend %base-color-two 
     opacity: 0.65
     @extend %z-index-c
+
+.page-breadcrumb 
+  +d-flex
+  margin-top: 15px
+  li
+    color: rgba(#ffffff, 0.8)
+    text-transform: capitalize
+    &::after 
+      content: '-'
+      color: #ffffff
+      margin: 0 5px
+    &:first-child
+      &::before 
+        content: "\f015"
+        font-family: "Font Awesome 5 Free"
+        font-weight: 900
+        color: $base-color
+        margin-right: 6px
+    &:last-child
+      &::after 
+        display: none
+    a
+      color: #ffffff
+      text-transform: capitalize
+      &:hover 
+        color: $base-color
 /* inner hero section css end */
