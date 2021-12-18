@@ -599,19 +599,19 @@ a.text-white:hover {
     }
 }
 
-.preloader__circle, .read-more-btn, .faq-single__header, .header, .footer, .footer-widget__title, .action-widget__body {
+.preloader__circle, .read-more-btn, .faq-single__header, .header, .footer, .footer-widget__title, .action-widget__body, .inner-hero {
     position: relative;
 }
 
-.preloader__circle::after, .read-more-btn::before, .faq-single__header::after, .footer-widget__title::after {
+.preloader__circle::after, .read-more-btn::before, .faq-single__header::after, .footer-widget__title::after, .inner-hero::before {
     position: absolute;
 }
 
-.read-more-btn, .footer {
+.read-more-btn, .footer, .inner-hero {
     z-index: 1;
 }
 
-.read-more-btn::before {
+.read-more-btn::before, .inner-hero::before {
     z-index: -1;
 }
 
@@ -625,7 +625,7 @@ body::-webkit-scrollbar-thumb, .read-more-btn::before, .header-account-btn, .soc
     background-color: #ee4719;
 }
 
-.preloader, .faq-single.active .faq-single__header, .header__bottom, .footer, .social-share a {
+.preloader, .faq-single.active .faq-single__header, .header__bottom, .footer, .social-share a, .inner-hero::before {
     background-color: #082032;
 }
 
@@ -685,11 +685,11 @@ body::-webkit-scrollbar-thumb, .read-more-btn::before, .header-account-btn, .soc
     overflow: hidden;
 }
 
-.preloader__circle::after, .read-more-btn::before, .custom--nav-tabs .nav-item .nav-link, .widget-organizer .thumb img {
+.preloader__circle::after, .read-more-btn::before, .custom--nav-tabs .nav-item .nav-link, .widget-organizer .thumb img, .inner-hero::before {
     width: 100%;
 }
 
-.preloader__circle::after, .widget-organizer .thumb img {
+.preloader__circle::after, .widget-organizer .thumb img, .inner-hero::before {
     height: 100%;
 }
 
@@ -2001,6 +2001,19 @@ button:focus {
 
 .form--control.form-control-sm {
     height: 35px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #082032;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 select.style--dark option {
@@ -3362,5 +3375,66 @@ label {
 }
 
 /* event-details-sidebar css end */
+/* hero section css start */
+.hero {
+    padding-top: 250px;
+    padding-bottom: 187px;
+}
+
+/* hero section css end */
+/* inner hero section css start */
+.inner-hero {
+    padding-top: 150px;
+    padding-bottom: 70px;
+}
+
+.inner-hero::before {
+    content: '';
+    top: 0;
+    left: 0;
+    opacity: 0.65;
+}
+
+.page-breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.page-breadcrumb li {
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: capitalize;
+}
+
+.page-breadcrumb li::after {
+    content: '-';
+    color: #ffffff;
+    margin: 0 5px;
+}
+
+.page-breadcrumb li:first-child::before {
+    content: "\f015";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ee4719;
+    margin-right: 6px;
+}
+
+.page-breadcrumb li:last-child::after {
+    display: none;
+}
+
+.page-breadcrumb li a {
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.page-breadcrumb li a:hover {
+    color: #ee4719;
+}
+
+/* inner hero section css end */
 
 /*# sourceMappingURL=main.css.map */
