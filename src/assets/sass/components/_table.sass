@@ -1,15 +1,11 @@
 /* table css start */
 .custom--table
   thead 
-    // @extend %base-color
     background-color: #f6f9fc
     th 
-      // border-bottom: 1px solid rgba(#fff, 0.15) !important
-      // border-top: none
       border-top: 1px solid #e9ecef !important
       border-bottom: 1px solid #e9ecef !important
       padding: rem(12px) rem(20px)
-      // @extend %text-h
       color: #7991ad
       font-size: rem(14px) 
       text-transform: uppercase
@@ -18,12 +14,8 @@
       vertical-align: middle
       &:first-child
         text-align: left
-        // +border-radius(8px 0 0 0)
-        // padding-left: 0
       &:last-child
         text-align: right
-        // +border-radius(0 8px 0 0)
-        // padding-right: 0
   tbody 
     td 
       border-top: none 
@@ -40,18 +32,6 @@
       &:last-child
         td 
           border-bottom: none 
-.t-company-thumb 
-  width: 55px
-  height: 55px 
-  @extend %bg-white 
-  @extend %bs-5 
-  overflow: hidden
-  box-shadow: 0 3px 15px rgba(#000, 0.3)
-.t-company-content 
-  padding-left: rem(15px)
-.t-rating 
-  img
-    max-height: 25px
 // table responsive 
 [data-label]
   position: relative
@@ -113,10 +93,4 @@
     [data-label]
       &::before
         display: block
-*[class*="table-responsive--"]
-  &.data-label--none 
-    @media (max-width: 1199px)
-      tr
-        th, td
-          padding-left: 0.75rem
 /* table css end */
